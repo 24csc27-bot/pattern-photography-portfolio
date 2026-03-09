@@ -1,0 +1,557 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>PixelPattern | Pattern Photography</title>
+
+   
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins',sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        /* HERO BACKGROUND */
+
+        .hero {
+            height: 100vh;
+            background: linear-gradient( rgba(255,79,163,0.55), rgba(159,107,255,0.55) ), url("https://images.unsplash.com/photo-1519681393784-d120267933ba");
+            background-size: cover;
+            background-position: center;
+            animation: bgmove 25s infinite alternate;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+        }
+
+        /* subtle background movement */
+
+        @keyframes bgmove {
+
+            0% {
+                background-position: center;
+            }
+
+            100% {
+                background-position: top;
+            }
+        }
+
+        /* NAVBAR */
+
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 60px;
+            background: rgba(255,255,255,0.85);
+            backdrop-filter: blur(8px);
+            z-index: 1000;
+        }
+
+        /* LOGO */
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 600;
+            font-size: 22px;
+        }
+
+        .logo-box {
+            width: 18px;
+            height: 18px;
+            background: linear-gradient(45deg,#ff4fa3,#9f6bff);
+            animation: spin 6s linear infinite;
+        }
+
+        @keyframes spin {
+
+            0% {
+                transform: rotate(0)
+            }
+
+            100% {
+                transform: rotate(360deg)
+            }
+        }
+
+        .logo span {
+            background: linear-gradient(45deg,#ff4fa3,#9f6bff);
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+
+        /* MENU */
+
+        nav ul {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #444;
+            font-weight: 500;
+            transition: .3s;
+        }
+
+            nav a:hover {
+                color: #ff4fa3;
+            }
+
+        /* HERO TEXT */
+
+        .hero h1 {
+            font-size: 70px;
+            letter-spacing: 2px;
+        }
+
+        .hero p {
+            margin-top: 15px;
+            font-size: 18px;
+        }
+
+        .hero button {
+            margin-top: 30px;
+            padding: 14px 35px;
+            border: none;
+            border-radius: 30px;
+            background: white;
+            color: #ff4fa3;
+            font-weight: 600;
+            cursor: pointer;
+            transition: .4s;
+        }
+
+            .hero button:hover {
+                transform: scale(1.08);
+            }
+
+        /* GALLERY */
+        .gallery-section {
+            padding: 120px 80px;
+            background: #faf7fb;
+        }
+
+        .gallery-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+            .gallery-header h2 {
+                font-size: 45px;
+                color: #333;
+            }
+
+            .gallery-header p {
+                color: #666;
+                margin-top: 10px;
+            }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit,minmax(260px,1fr));
+            gap: 30px;
+        }
+
+            .gallery-grid img {
+                width: 100%;
+                height: 300px;
+                object-fit: cover;
+                border-radius: 12px;
+                transition: .5s;
+                box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+            }
+
+                .gallery-grid img:hover {
+                    transform: scale(1.05);
+                    box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+                }
+
+        /* ABOUT */
+
+        .about-section {
+            padding: 120px 80px;
+            background: white;
+        }
+
+        .about-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .about-text h2 {
+            font-size: 45px;
+            margin-bottom: 20px;
+        }
+
+        .about-text p {
+            line-height: 1.7;
+            color: #555;
+        }
+
+        .about-image img {
+            width: 100%;
+            border-radius: 15px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+        }
+
+        /* CONTACT */
+
+        /* CONTACT HERO */
+
+        .contact-hero {
+            height: 100vh;
+            background: linear-gradient( rgba(255,79,163,0.65), rgba(159,107,255,0.65) ), url("https://images.unsplash.com/photo-1500530855697-b586d89ba3ee");
+            background-size: cover;
+            background-position: center;
+            animation: contactmove 25s infinite alternate;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+        }
+
+        /* subtle animation */
+
+        @keyframes contactmove {
+
+            0% {
+                background-position: center;
+            }
+
+            100% {
+                background-position: top;
+            }
+        }
+
+        .contact-content {
+            max-width: 700px;
+            padding: 40px;
+            background: rgba(255,255,255,0.15);
+            backdrop-filter: blur(10px);
+            border-radius: 12px;
+        }
+
+            .contact-content h2 {
+                font-size: 50px;
+                margin-bottom: 15px;
+            }
+
+            .contact-content p {
+                font-size: 18px;
+                margin-bottom: 10px;
+            }
+
+        .contact-info {
+            margin-top: 20px;
+            font-weight: 500;
+        }
+
+        /* FOOTER */
+
+        footer {
+            padding: 20px;
+            text-align: center;
+            background: #f3eef7;
+            color: #666;
+        }
+
+        .viewer {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.9);
+            justify-content: center;
+            align-items: center;
+            z-index: 999;
+        }
+
+            .viewer img {
+                max-width: 90%;
+                max-height: 90%;
+                border-radius: 10px;
+            }
+
+        .close {
+            position: absolute;
+            top: 30px;
+            right: 50px;
+            font-size: 40px;
+            color: white;
+            cursor: pointer;
+        }
+
+        .photo-card {
+            text-align: center;
+        }
+
+        .caption {
+            margin-top: 8px;
+            font-size: 14px;
+            color: #555;
+            animation: fadeUp 1s ease;
+        }
+
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+
+</head>
+
+<body>
+
+
+    <nav>
+
+        <div class="logo">
+
+            <div class="logo-box"></div>
+
+            <span>PixelPattern</span>
+
+        </div>
+
+        <ul>
+
+            <li><a href="#home">Home</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+
+        </ul>
+
+    </nav>
+
+
+    <section class="hero" id="home">
+
+        <h1>PixelPattern</h1>
+
+        <p>Capturing symmetry, repetition and beauty through smartphone photography</p>
+
+        <button onclick="document.getElementById('gallery').scrollIntoView()">
+
+            View Gallery
+
+        </button>
+
+    </section>
+
+
+    <section class="gallery-section" id="gallery">
+
+        <div class="gallery-header">
+            <h2>Pattern Photography</h2>
+            <p>Exploring symmetry, repetition and geometry in everyday scenes</p>
+        </div>
+
+        <div class="gallery-grid">
+           
+
+                <div class="photo-card">
+                    <img src="images/watch.jpeg" onclick="openImage(this.src)">
+                    <p class="caption">
+                        <b>Time Geometry </b><br>
+                        Precision and symmetry captured in motionless time.
+                    </p>
+                </div>
+
+                <div class="photo-card">
+                    <img src="images/brick.jpeg" onclick="openImage(this.src)">
+                    <p class="caption">
+                        <b>Brick Rhythm</b> <br>
+                        Repeating textures shaped by sunlight and shadow.
+                    </p>
+                </div>
+
+                <div class="photo-card">
+                    <img src="images/shell.jpeg"  onclick="openImage(this.src)">
+                    <p class="caption">
+                        <b>Spiral Nature </b><br>
+                        Organic patterns formed through nature's design.
+                    </p>
+                </div>
+
+                <div class="photo-card">
+                    <img src="images/window.jpeg" onclick="openImage(this.src)">
+                    <p class="caption">
+                        <b>Window Geometry</b> <br>
+                        Light and shadow forming patterns through architectural lines.
+                    </p>
+                </div>
+                
+                <div class="photo-card">
+                    <img src="images/housefly.jpeg" onclick="openImage(this.src)">
+                    <p class="caption">
+                       <b> Tiny Observer</b> <br>
+                        A small creature resting within the patterns of nature.
+                    </p>
+                </div>
+
+                <div class="photo-card">
+                    <img src="images/yellow flower.jpeg" onclick="openImage(this.src)">
+                    <p class="caption">
+                        <b>Golden Bloom Symmetry</b><br >
+                        Nature's perfect radial pattern in a single flower.
+                    </p>
+                </div>
+
+                <div class="photo-card">
+                    <img src="images/pink flower.jpeg" onclick="openImage(this.src)">
+                    <p class="caption">
+                        <b>Petal Harmony </b><br>
+                        Soft petals unfolding in perfect natural symmetry.
+                    </p>
+                </div>
+
+                <div class="photo-card">
+                    <img src="images/ladybug.jpeg" onclick="openImage(this.src)">
+                    <p class="caption">
+                        <b>Spotted Beauty </b><br>
+                        A bright traveler exploring the patterns of the garden.
+                    </p>
+                </div>
+
+                <div class="photo-card">
+                    <img src="images/windowpattern.jpeg" onclick="openImage(this.src)">
+                    <p class="caption">
+                        <b>Urban Window Geometry</b><br>
+                        Light and shadow forming natural patterns through iron grids. 
+                        
+                    </p>
+                </div>
+
+                <div class="photo-card">
+                    <img src="images/leaf.jpeg" onclick="openImage(this.src)">
+                    <p class="caption">
+                       <b> Leaf Veins</b> <br>
+                        Nature’s delicate network of lines carrying life.
+                    </p>
+                </div>
+
+                <div class="photo-card">
+                    <img src="images/bench.jpeg" onclick="openImage(this.src)">
+                    <p class="caption">
+                       <b> Quiet Corners </b><br>
+                        Simple structures creating calm patterns of rest.
+                    </p>
+                </div>
+
+            </div>
+
+    </section>
+
+    <section class="about-section" id="about">
+
+        <div class="about-container">
+
+            <div class="about-text">
+
+                <h2>About PixelPattern</h2>
+
+                <p>
+
+                    PixelPattern is a smartphone photography project dedicated to discovering
+                    patterns in architecture, nature, and everyday environments.
+
+                    Through symmetry, textures and repetition, the project highlights
+                    how simple structures can create visually striking compositions.
+
+                    All photographs are captured using a smartphone camera,
+                    showing that creativity matters more than equipment.
+
+                </p>
+
+            </div>
+
+            <div class="about-image">
+
+                <img src="images/yellow flower.jpeg" />
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <section class="contact-hero" id="contact">
+
+        <div class="contact-content">
+
+            <h2>Let's Connect</h2>
+
+            <p>
+                If you are interested in collaborations, pattern photography projects,
+                or creative discussions, feel free to contact me.
+            </p>
+
+            <div class="contact-info">
+
+                <p>Email: yourname@email.com</p>
+                <p>Instagram: @pixelpattern</p>
+                <p>YouTube: PixelPattern Studio</p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <footer>
+
+        © 2026 PixelPattern Photography
+
+    </footer>
+
+    <div id="fullscreenViewer" class="viewer" onclick="closeImage()">
+        <span class="close" onclick="closeImage()">&times;</span>
+        <img id="fullImg" onclick="event.stopPropagation()">
+    </div>
+    <script>
+
+        function openImage(src) {
+            document.getElementById("fullscreenViewer").style.display = "flex";
+            document.getElementById("fullImg").src = src;
+        }
+
+        function closeImage() {
+            document.getElementById("fullscreenViewer").style.display = "none";
+        }
+
+    </script>
+</body>
+</html>
